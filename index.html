@@ -11,16 +11,19 @@ rel="stylesheet" />
  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
  rel="text/javascript" />
 
+<link href="content/app.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/jquery-1.10.2.js"type="application/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.0.3/angular-sanitize.js"></script>
 
+<script src="scripts/app.js" type="application/javascript"> </script>
+<script src="scripts/MainController.js" type="application/javascript"> </script>
 
-
-<link href="app.css" rel="stylesheet"/>
     </head>
 
 
-
-
-    <body>
+    <body onload="onLoad()" ng-app="angularApp">
+        <div ng-controller="MainController">
         <header class="container-fluid">
         <h1>Visit anytown, USA!</h1>
     </header>
@@ -39,12 +42,28 @@ rel="stylesheet" />
     <div class="row">
 
 <section class="col-sm-6 col-sm-push-3">
+    <div class="row">
+        <div class="col-sm-4">
+    <input ng-model="smallnumber" type="text">
+    <p>{{ theMessage }}</p>
+    <button ng-click="checkNumber()">Submit</button>
+    </div>
+
+    <div class="col-sm-8">
+        <label>FirstName</label><input ng-model="User.firstName" type="text"
+        ng-model-options="{ getterSetter: true }" /></br>
+        <label>LastName</label><input ng-model="User.lastName" type="text"
+        ng-model-options="{ getterSetter: true }" /></br>
+        <label>FullName</label><span ng-bind="User.fullName()"></span>
+    </div>
+</div>
+
  <div class="row">
 
                 <article>
                         <h2>Amazing Museums</h2>
                         <div class="col-sm-3">
-                    <img src="http://lorempixel.com/200/100/city/1" />
+                    <img src="https://themysteriousworld.com/wp-content/uploads/2015/01/Vila-TAranTo.webp" />
                     </div>
               <div class="col-sm-9">
                 
@@ -63,7 +82,7 @@ rel="stylesheet" />
 
                 <h2>Splash anyone watermark</h2>
                 <div class="col-sm-3">
-                     <img src="http://lorempixel.com/200/100/city/2" />
+                     <img src="https://themysteriousworld.com/wp-content/uploads/2015/01/Monets-GARDEN.webp" />
             </div>
 
             <div class="col-sm-9">
@@ -81,7 +100,7 @@ rel="stylesheet" />
             
                 <h2>Best zoo in town</h2>
                 <div class="col-sm-3">
-                <img src="http://lorempixel.com/200/100/city/3" />
+                <img src="https://themysteriousworld.com/wp-content/uploads/2015/01/LongWood-GarDens.webp" />
             </div>
         <div class="col-sm-9">
          <p> Finally, you wont want  zoo and museums are sometimes weird brother just take care of yourself for you,
@@ -140,9 +159,10 @@ rel="stylesheet" />
 
 <footer class="container-fluid">
 Copyrights 2019
+<p>{{ timestamp }}</p>
 
 </footer>
-
+</div>
   </body>
 </html>
 
